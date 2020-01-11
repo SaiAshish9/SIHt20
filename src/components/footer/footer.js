@@ -1,14 +1,12 @@
 import React from 'react'
 
 const Footer=()=>(
-  <div className="container-fluid" id="footer" >
+  <div className="container-fluid" id="footer" style={{position:'relative',width:'100%', bottom:'0px',overFlow:'hidden'}} >
 <div className="row">
-  <div className="col-4" style={{paddingTop:'70px'}}>
+  <div className="col-6" style={{padding:'70px 0px'}}>
     <p className="navbar-brand" style={{fontWeight:'bold',color:'white'}}>
     Contact Us
     </p>
-  </div>
-  <div className="col-4" style={{paddingTop:'40px'}}>
     <p className="navbar-brand" style={{color:'white'}}>
 @facebook
     </p>
@@ -19,10 +17,10 @@ const Footer=()=>(
 @email
     </p>
   </div>
-  <div className="col-4" style={{paddingTop:'30px'}}>
-    <p className="navbar-brand" style={{fontWeight:'bold',color:'white'}}>
+  <div className="col-4" style={{position:'relative',right:'27px',paddingleft:"10px", paddingTop:'70px'}}>
+    <p className="navbar-brand" style={{fontSize:'15px', fontWeight:'bold',color:'white',marginRight:'10px'}}>
     Google Translator
-    <div id="google_translate_element"></div>
+    <div  id="google_translate_element"></div>
     </p>
   </div>
 </div>

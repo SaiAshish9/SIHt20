@@ -1,0 +1,61 @@
+.foodpic1{
+position: absolute;
+visibility: hidden;
+z-index: -1;
+left: -1000px;
+animation: slide 0.5s forwards 1s;
+}
+
+.foodpic2{
+visibility: hidden;
+position: absolute;
+right: -600px;
+z-index: -1;
+animation: slide1 0.5s forwards 1s;
+}
+
+
+@keyframes slide {
+  0%{
+    position: relative;
+    visibility: visible;
+    z-index: 1;
+  }
+
+    100% {
+      position: relative;
+       left: 10px;
+       z-index: 1;
+       visibility: visible;
+      }
+}
+
+@keyframes slide1 {
+  0%{
+    position: relative;
+    visibility: visible;
+    z-index: 1;
+  }
+    100% {
+      position: relative;
+      z-index: 1;
+      right: 0;
+      visibility: visible;
+      }
+}
+
+
+
+@media (max-width:500px){
+  .foodpic2{
+    position: relative !important;
+    bottom:470px !important;
+  }
+
+  .foodpic2desc{
+    position: relative !important;
+    top:250px !important
+  }
+
+
+}

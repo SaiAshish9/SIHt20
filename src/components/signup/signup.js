@@ -2,7 +2,11 @@ import React,{useState} from 'react'
 
 import {addUser} from '../../redux/user/user.utils'
 
-const SignUp =()=>{
+import { setCurrentUser } from '../../redux/user/user.actions';
+
+import {connect} from 'react-redux'
+
+const SignUp =({history,setCurrentUser})=>{
 
 const [userdetails,setDetails]=useState({email:'',password:'',username:'',confirm:''})
 const {password,confirm,email,username}=userdetails
@@ -16,9 +20,13 @@ setDetails({...userdetails,[name]:value})
 const handleSubmit=async e=>{
 e.preventDefault()
   if(password===confirm){
-    await addUser(userdetails)
-localStorage.setItem('Token','xcvhu7654resdfghjnbgtyujnbvcder')
-// console.log(localStorage.getItem('Token'));
+  var data= await addUser({username:username,email:email,password:password})
+  if(data){
+    await setCurrentUser(data)
+    history.push('/')
+
+  }
+
   }
   else{
     console.log("passwords don't match");
@@ -78,4 +86,8 @@ return (
 )
 }
 
-export default SignUp
+const mapDispatchToProps=dispatch=>({
+  setCurrentUser:me => dispatch(setCurrentUser(me))
+})
+
+export default connect(null,mapDispatchToProps)(SignUp)

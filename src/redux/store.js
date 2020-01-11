@@ -1,4 +1,4 @@
-import {createStore,applyMiddleware} from 'redux'
+import {createStore,applyMiddleware,compose} from 'redux'
 
 import logger from 'redux-logger'
 
@@ -17,3 +17,13 @@ if(process.env.NODE_ENV==='development'){
 export const store= createStore(rootReducer,applyMiddleware(...middlewares))
 
 export const persistor =persistStore(store)
+
+
+export function configureStore(){
+  const store=createStore(rootReducer,compose(applyMiddleware(thunk),
+window.devToolsExtension?window.devToolsExtension():f=>f
+)
+)
+
+return store;
+}

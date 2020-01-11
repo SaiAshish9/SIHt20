@@ -10,6 +10,7 @@ await  axios({
   }).then( data=>{
     required= data.data
     localStorage.setItem('Token',data.data.token)
+    setAuthorizationToken(data.data.token)
   })
   return required
 }
@@ -23,7 +24,7 @@ export const loginUser=async (user)=>{
   }).then( data=>{
     required= data.data
     localStorage.setItem('Token',data.data.token)
-
+    setAuthorizationToken(data.data.token)
   })
   return required
 }
@@ -33,4 +34,16 @@ export function logout() {
     localStorage.clear();
     dispatch(setCurrentUser({}));
   };
+}
+
+export function setTokenHeader(token){
+  if(token){
+    axios.defaults.headers.common['Authorization']=`Bearer ${token}`;
+  }else{
+    delete axios.defaults.headers.common['Authorization'];
+  }
+}
+
+export function setAuthorizationToken(token) {
+  setTokenHeader(token);
 }

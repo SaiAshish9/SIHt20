@@ -3,25 +3,36 @@ import './homepage.scss'
 import First from '../../components/firstsection/firstsection'
 import Second from '../../components/secondsection/secondsection'
 import Third from '../../components/thirdsection/thirdsection'
-import Footer from '../../components/footer/footer'
+
+import Home from '../dashboard/dashboard'
 
 import {connect} from 'react-redux'
 import {selectCurrentUser} from '../../redux/user/user.selectors'
-import {setCurrentUser} from '../../redux/user/user.actions'
 import {createStructuredSelector} from 'reselect'
+
+import {withRouter} from 'react-router-dom'
+
+
 
 const Homepage=({currentUser})=>{
 
-// console.log(currentUser);
 
-// console.log(localStorage.getItem('Token'));
+return(
+<div style={{overFlowX:'hidden',width:'100%'}}>
+{
+  !currentUser?
+ (<div>
+    <First/>
+    <Second/>
+    <Third/>
+</div>
 
-return(  <div>
-
-<First/>
-<Second/>
-<Third/>
-<Footer/>
+  ):
+  (<div>
+    <Home/>
+  </div>
+  )
+}
 
 
 
@@ -32,4 +43,4 @@ const mapStateToProps=createStructuredSelector({
   currentUser:selectCurrentUser
 })
 
-export default connect(mapStateToProps)(Homepage)
+export default withRouter(connect(mapStateToProps)(Homepage))

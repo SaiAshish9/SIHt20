@@ -1,14 +1,13 @@
 import React from 'react'
+import PIC from '../../pics/1.jpg'
+import './first.js'
 
 const First=()=>(
-  <div className="container-fluid" id="events" >
+  <div className="container-fluid" style={{width:'100%'}} id="events" >
   <div className="container" style={{paddingTop:'5%'}}>
   <div className="row" >
-  <div className="col-lg-6">
-
-  </div>
-  <div className="col-lg-6">
-
+  <div className="col-lg-12">
+<img id="first" src={PIC} style={{height:'15rem', width:'100%'}}/>
   </div>
   </div>
 
@@ -18,7 +17,7 @@ const First=()=>(
   </p>
 
   </div>
-</div>
+  </div>
 
 )
 

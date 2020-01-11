@@ -4,18 +4,17 @@ import {loginUser} from '../../redux/user/user.utils'
 
 import { setCurrentUser } from '../../redux/user/user.actions';
 
-import { selectCurrentUser } from '../../redux/user/user.selectors';
 
+import {withRouter} from 'react-router-dom'
 
 import {connect} from 'react-redux'
 
-import { createStructuredSelector } from 'reselect';
 
 
-const SignIn=({setCurrentUser})=>{
+const SignIn=({history,setCurrentUser})=>{
 
   const [userdetails,setDetails]=useState({email:'',password:''})
-  const {password,email}=userdetails
+  var {password,email}=userdetails
 
 
   const handleChange=e=>{
@@ -26,9 +25,14 @@ const SignIn=({setCurrentUser})=>{
   const handleSubmit=async e=>{
   e.preventDefault()
   var data= await loginUser(userdetails)
-  await setCurrentUser(data)
+  if(data){
+    await setCurrentUser(data)
+    email=''
+    password=''
   }
-  
+history.push('/')
+  }
+
   return(
   <div className="container" style={{width:'100%',height:'90vh',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}>
     <div className="card" style={{margin:'auto',padding:'10px'}}>
@@ -60,7 +64,7 @@ const SignIn=({setCurrentUser})=>{
           </div>
           <div className="d-flex justify-content-around">
             <div>
-              <a href="">Forgot password?</a>
+              <a href="/" >Forgot password?</a>
             </div>
           </div>
           <button className="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
@@ -78,4 +82,4 @@ const mapDispatchToProps=dispatch=>({
   setCurrentUser:me => dispatch(setCurrentUser(me))
 })
 
-export default connect(null,mapDispatchToProps)(SignIn)
+export default withRouter(connect(null,mapDispatchToProps)(SignIn))

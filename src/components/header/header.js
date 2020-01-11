@@ -1,22 +1,23 @@
 import React  from 'react'
 import './header.scss'
 
-import {Link,Redirect,withRouter} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 
 
 import {connect} from 'react-redux'
 import {selectCurrentUser} from '../../redux/user/user.selectors'
-import {setCurrentUser,signOutUser} from '../../redux/user/user.actions'
+
+import {signOutUser} from '../../redux/user/user.actions'
 import {createStructuredSelector} from 'reselect'
 
-import {logout} from '../../redux/user/user.utils'
+
+import {setAuthorizationToken} from '../../redux/user/user.utils'
+
+
+
 
 const Header=({history,match,currentUser,dispatch})=>{
 
-
-
-// console.log(match);
-// console.log(history);
 return(  <div>
 <nav className="navbar navbar-expand-lg navbar-dark " style={{fontWeight:'bold',background:'black'}} >
 <Link to="/" className="navbar-brand" style={{fontWeight:'bold'}}>
@@ -30,7 +31,7 @@ NutriYou
 <div className="collapse navbar-collapse" id="navbarSupportedContent">
 <ul className="navbar-nav ml-auto ">
 {
-  match.isExact===true?
+  match.isExact===true && !currentUser?
   (
 <a href="#events" className="nav-link" >
     Events
@@ -38,7 +39,7 @@ NutriYou
 :null
 }
 {
-match.isExact===true?
+match.isExact===true&& !currentUser?
 (
 <a href="#diets" className="nav-link">
       Diets
@@ -46,7 +47,7 @@ match.isExact===true?
 ):null
 }
 {
-match.isExact===true?
+match.isExact===true&& !currentUser?
 (
 <a href="#doctors" className="nav-link">
 Doctors
@@ -57,9 +58,18 @@ Doctors
 match.isExact===true?
 (
   currentUser?
-  <Link to="/home" className="nav-link">
-     Dashboard
-  </Link>
+    <a
+    onClick={()=>{
+    history.push('/')
+    dispatch(signOutUser())
+    setAuthorizationToken(false)
+    }
+    }
+    className="nav-link"
+    style={{cursor:'pointer'}}
+    >
+       SignOut
+    </a>
 :
 <Link to="/signup" className="nav-link">
    SignUp
@@ -70,6 +80,7 @@ currentUser?
 onClick={()=>{
 history.push('/')
 dispatch(signOutUser())
+setAuthorizationToken(false)
 }
 }
 className="nav-link"
