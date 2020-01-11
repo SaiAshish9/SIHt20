@@ -4,7 +4,7 @@ import {withRouter,Link} from 'react-router-dom'
 
 
 const Sidebar=({history})=>(
-  <div className="container" style={{width:'30%', position:'absolute',minHeight:'110vh',top:'0px',backgroundColor:'#f5cdaa'}}>
+  <div className="container-fluid" style={{overflowY:'auto !important', minHeight:'170vh',width:'30%', position:'absolute',bottom:'0px',top:'0px',backgroundColor:'#f5cdaa'}}>
 
   <div  style={{fontWeight:'bold',marginTop:'18vh',fontSize:'1.3rem'}}>
 

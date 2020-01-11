@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer=()=>(
-  <div className="container-fluid" id="footer" style={{position:'relative',width:'100%', bottom:'0px',overFlow:'hidden'}} >
+  <div className="container-fluid" id="footer" style={{position:'absolute',width:'100%', bottom:'0px !important',overFlow:'hidden'}} >
 <div className="row">
   <div className="col-6" style={{padding:'70px 0px'}}>
     <p className="navbar-brand" style={{fontWeight:'bold',color:'white'}}>

@@ -4,6 +4,8 @@ import './dashboard.scss'
 import Sidebar from '../../components/sidebar/sidebar'
 import Events from '../../components/events/events'
 import Doctors from '../../components/doctors/doctors'
+import Diets from '../../components/diets/diets'
+
 
 const Home=({history})=>{
   // <Route exact path='/diets' component={Diets} />
@@ -25,6 +27,7 @@ return(
 <Switch>
   <Route exact path='/' component={Doctors} />
   <Route path='/events' component={Events} />
+  <Route path='/diets' component={Diets} />
 </Switch>
 </div>
 
