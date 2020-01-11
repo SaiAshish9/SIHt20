@@ -12,6 +12,9 @@ const [category,setCategory]=useState('')
 
 
 const handleSubmit=(e)=>{
+
+  e.preventDefault()
+  setToggle(!hidden)
   history.push('/diets/'+category)
 }
 

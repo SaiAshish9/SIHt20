@@ -1,10 +1,11 @@
 import React from 'react'
-import {Switch,Route,Link} from 'react-router-dom'
+import {Switch,Route,Link,withRouter} from 'react-router-dom'
 import './dashboard.scss'
 import Sidebar from '../../components/sidebar/sidebar'
 import Events from '../../components/events/events'
 import Doctors from '../../components/doctors/doctors'
 import Diets from '../../components/diets/diets'
+import DietVariety from '../../components/dietvariety/dietvariety'
 
 
 const Home=({history})=>{
@@ -27,7 +28,8 @@ return(
 <Switch>
   <Route exact path='/' component={Doctors} />
   <Route path='/events' component={Events} />
-  <Route path='/diets' component={Diets} />
+  <Route exact path='/diets' component={Diets} />
+  <Route path='/diets/:category' component={DietVariety} />
 </Switch>
 </div>
 
@@ -36,4 +38,4 @@ return(
 )
 }
 
-export default Home
+export default withRouter(Home)
