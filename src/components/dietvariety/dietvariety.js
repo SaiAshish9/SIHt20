@@ -10,9 +10,9 @@ const DietVariety=({match})=>(
   {match.params.category}
   </h1>
 
-  <img style={{width:'100%',height:'18vh',margin:'8px'}} src={BreakfastPic}  />
-  <img style={{width:'100%',height:'18vh',margin:'8px'}} src={BreakfastPic1}  />
-  <img style={{width:'100%',height:'18vh',margin:'8px'}} src={BreakfastPic2}  />
+  <img style={{width:'50%',height:'18vh',margin:'8px'}} src={BreakfastPic}  />
+  <img style={{width:'50%',height:'18vh',margin:'8px'}} src={BreakfastPic1}  />
+  <img style={{width:'50%',height:'18vh',margin:'8px'}} src={BreakfastPic2}  />
 
   </div>
 )

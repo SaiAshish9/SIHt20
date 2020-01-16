@@ -18,9 +18,9 @@ const Doctors=()=>(
 
 </div>
 
-<div className="row" style={{padding:'20px'}}>
+<div className="row" style={{padding:'0px',textAlign:'center'}}>
 
-<div className="col-4" style={{textAlign:'center',margin:'30px'}} >
+<div className="col-md-4" style={{textAlign:'center',margin:'30px'}} >
 
 <img style={{borderRadius:'50%', margin:'auto',width:'20vh',height:'20vh'}}
  src={DoctorPic} />
@@ -36,7 +36,7 @@ Extremely hard working and educated
 
 </div>
 
-<div className="col-4" style={{textAlign:'center',margin:'30px'}}>
+<div className="col-md-4" style={{textAlign:'center',margin:'30px'}}>
 
 <img style={{borderRadius:'50%',width:'20vh',height:'20vh'}}
  src={DoctorPic}  />
@@ -52,7 +52,7 @@ Extremely hard working and educated
 </div>
 
 
-<div className="col-4" style={{textAlign:'center',margin:'30px'}}>
+<div className="col-md-4" style={{textAlign:'center',margin:'30px'}}>
 
 <img style={{borderRadius:'50%', width:'20vh',height:'20vh'}}
  src={DoctorPic}

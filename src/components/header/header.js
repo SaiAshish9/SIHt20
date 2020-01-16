@@ -20,7 +20,9 @@ const Header=({history,match,currentUser,dispatch})=>{
 
 return(  <div>
 <nav className="navbar navbar-expand-lg navbar-dark " style={{fontWeight:'bold',background:'black'}} >
-<Link to="/" className="navbar-brand" style={{fontWeight:'bold'}}>
+<Link
+  to="/"
+  className="navbar-brand link" style={{fontWeight:'bold',color:'white',cursor:'pointer'}}>
 NutriYou
 </Link>
 
@@ -83,7 +85,7 @@ dispatch(signOutUser())
 setAuthorizationToken(false)
 }
 }
-className="nav-link"
+className="nav-link link"
 style={{cursor:'pointer'}}
 >
    SignOut

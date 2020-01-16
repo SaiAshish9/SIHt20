@@ -27,22 +27,28 @@ import Footer from './components/footer/footer'
 // }
 
 function App(){
+
+
+
   return (
     <div style={{overFlowX:'hidden'}}>
       <div style={{width:'100%'}}  className='container-fluid'>
         <Header />
+
     <Switch>
       <Route exact path='/' component={Homepage} />
       <Route exact path='/diets' component={Homepage} />
       <Route exact path='/diets/:category' component={Homepage} />
       <Route exact path='/events' component={Homepage} />
+      <Route path='/check' component={Homepage} />
+      <Route path='/camera' component={Homepage} />
       <Route  path='/signup' component={SignUp} />
       <Route  path='/signin' component={SignIn} />
   </Switch>
-
   <Footer  />
 
       </div>
+
     </div>
   )
   }
